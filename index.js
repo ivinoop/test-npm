@@ -6,6 +6,7 @@ let dateValidityRoot = document.querySelector('.date-validity');
 let dateManipulateRoot = document.querySelector('.date-manipulate');
 let dateDifferenceRoot = document.querySelector('.date-difference');
 let isDateAfterRoot = document.querySelector('.is-date-after');
+let isLeapYearRoot = document.querySelector('.is-leap-year');
 
 let dateFormats = ['MMMM Do YYYY', 'h:mm:ss a', 'ddd MMM Do YY'];
 let dateValids = ['2020-01-01', '2020-14-01'];
@@ -77,6 +78,19 @@ function createUI() {
     isDateAfterRoot.append(dateOneItem, dateTwoItem);
   }
   isDateAfter();
+
+  // Is Leap Year
+  function isLeapYear() {
+    let dateOne = moment('2019');
+    let dateTwo = moment('2020');
+    let checkDateOne = dateOne.isLeapYear();
+    let checkDateTwo = dateTwo.isLeapYear();
+    let dateOneItem = document.createElement('li');
+    dateOneItem.innerText = 'Is ' + dateOne.format('YYYY') + ' a leap year? 👉 ' + checkDateOne;
+    dateTwoItem.innerText = 'Is ' + dateTwo.format('YYYY') + ' a leap year? 👉 ' + checkDateTwo;
+    isLeapYearRoot.append(dateOneItem, dateTwoItem);
+  }
+  isLeapYear();
 }
 
 createUI();

@@ -25054,6 +25054,7 @@ var dateValidityRoot = document.querySelector('.date-validity');
 var dateManipulateRoot = document.querySelector('.date-manipulate');
 var dateDifferenceRoot = document.querySelector('.date-difference');
 var isDateAfterRoot = document.querySelector('.is-date-after');
+var isLeapYearRoot = document.querySelector('.is-leap-year');
 var dateFormats = ['MMMM Do YYYY', 'h:mm:ss a', 'ddd MMM Do YY'];
 var dateValids = ['2020-01-01', '2020-14-01']; // CreateUI
 
@@ -25124,7 +25125,20 @@ function createUI() {
     isDateAfterRoot.append(dateOneItem, dateTwoItem);
   }
 
-  isDateAfter();
+  isDateAfter(); // Is Leap Year
+
+  function isLeapYear() {
+    var dateOne = moment('2019');
+    var dateTwo = moment('2020');
+    var checkDateOne = dateOne.isLeapYear();
+    var checkDateTwo = dateTwo.isLeapYear();
+    var dateOneItem = document.createElement('li');
+    dateOneItem.innerText = 'Is ' + dateOne.format('YYYY') + ' a leap year? 👉 ' + checkDateOne;
+    dateTwoItem.innerText = 'Is ' + dateTwo.format('YYYY') + ' a leap year? 👉 ' + checkDateTwo;
+    isLeapYearRoot.append(dateOneItem, dateTwoItem);
+  }
+
+  isLeapYear();
 }
 
 createUI();
@@ -25156,7 +25170,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64942" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57713" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
