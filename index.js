@@ -1,5 +1,5 @@
-const lodash = require('lodash');
-const moment = require('moment');
+import moment from 'moment';
+import lodash from 'lodash';
 
 let dateFormatRoot = document.querySelector('.date-format');
 let dateValidityRoot = document.querySelector('.date-validity');
@@ -54,14 +54,14 @@ function createUI() {
   // Difference between dates
   let dateOne = moment('2015-09-11');
   let dateTwo = moment('2014-11-11');
-  let dateOneItem = document.createElement('li');
-  dateOneItem.innerText = 'Date 1 is ' + dateOne.format('MMMM Do YYYY');
-  let dateTwoItem = document.createElement('li');
-  dateTwoItem.innerText = 'Date 2 is ' + dateTwo.format('MMMM Do YYYY');
+  let dateOneItemDiff = document.createElement('li');
+  dateOneItemDiff.innerText = 'Date 1 is ' + dateOne.format('MMMM Do YYYY');
+  let dateTwoItemDiff = document.createElement('li');
+  dateTwoItemDiff.innerText = 'Date 2 is ' + dateTwo.format('MMMM Do YYYY');
   let dateDifference = dateOne.diff(dateTwo, 'days');
   let dateDifferenceItem = document.createElement('li');
   dateDifferenceItem.innerText = 'The difference between the above dates is ' + dateDifference + ' days';
-  dateDifferenceRoot.append(dateOneItem, dateTwoItem, dateDifferenceItem);
+  dateDifferenceRoot.append(dateOneItemDiff, dateTwoItemDiff, dateDifferenceItem);
   
   // Is Date After or Before
   
